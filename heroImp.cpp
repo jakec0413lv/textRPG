@@ -16,6 +16,7 @@ Hero::Hero(){
      currentArmor = 8;
      magicResist = 8;
      currentMagicResist = 8;
+     alive = true;
     }
 
 void Hero::levelUp(){
@@ -150,4 +151,13 @@ void Hero::levelUp(){
             cout << "Skill: " << _Hero.skills[i] << '\n';
         }
      return out;
+    }
+
+    bool Hero::isAlive(){
+        if(currentHealth < 0){
+            alive = false;
+            return false;
+        }else{
+            return true;
+        }
     }

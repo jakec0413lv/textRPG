@@ -42,6 +42,7 @@ class Hero {
 
     void postBattleReset();
     void levelUp();
+    bool isAlive();
 
     private:
     int maxHealth;
@@ -57,4 +58,5 @@ class Hero {
     int magicResist;
     int currentMagicResist;
     vector<string> skills;
+    bool alive;
 };
