@@ -20,6 +20,7 @@ void Mage::Fireball(Monster _monster){
     cout << "You cast Fireball..." << '\n';
     _monster.Monster::takeMagicDamage(getMagicAttack() * 1.5 );
     cout << "Fireball did " << (getMagicAttack() * 1.5) - _monster.Monster::getMagicResist()*.25 << " damage!" << '\n';
+    setCurrentMana(getCurrentMana() - 6);
 }
 
 void Mage::Attack(Monster _monster){

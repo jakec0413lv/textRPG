@@ -11,6 +11,7 @@
 #include "Knight.h"
 #include "Mage.h"
 #include "archer.h"
+#include "cleric.h"
 
 using namespace std;
 
@@ -52,7 +53,7 @@ int main() {
     }
 
     if(classChoice == "c" || classChoice == "C"){
-        //hero1 = new Cleric;
+        hero1 = new Cleric;
     }
 
     if(classChoice == "a" || classChoice == "A"){
@@ -90,7 +91,7 @@ int main() {
     }
 
     if(classChoice == "c" || classChoice == "C"){
-        //hero2 = new Cleric;
+        hero2 = new Cleric;
     }
 
     if(classChoice == "a" || classChoice == "A"){
