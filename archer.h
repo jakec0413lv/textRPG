@@ -5,10 +5,10 @@
 
 using namespace std;
 
-class Mage : public Hero 
+class Archer : public Hero 
 {
     public:
-    Mage();
-    void Fireball(Monster );
+    Archer();
+    void Tripleshot(Monster );
     void Attack(Monster );
 };

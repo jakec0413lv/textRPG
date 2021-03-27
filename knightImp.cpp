@@ -19,3 +19,7 @@ void Knight::Guard(){
     Hero::setCurrentMana(Hero::getCurrentMana() - 4);
     cout << "Defense up!" << '\n';
 };
+
+void Knight::Attack(Monster _monster){
+    _monster.Monster::takeDamage(getPhysicalAttack());
+}

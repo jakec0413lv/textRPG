@@ -16,7 +16,12 @@ Mage::Mage(){
      Hero::addSkill("Fireball: Do a massive amount of fire damage! (6 MP)");
     }
 
-void Mage::Fireball(){
+void Mage::Fireball(Monster _monster){
     cout << "You cast Fireball..." << '\n';
-    cout << "Fireball did " << getMagicAttack() << " damage!" << '\n';
+    _monster.Monster::takeMagicDamage(getMagicAttack() * 1.5 );
+    cout << "Fireball did " << (getMagicAttack() * 1.5) - _monster.Monster::getMagicResist()*.25 << " damage!" << '\n';
+}
+
+void Mage::Attack(Monster _monster){
+    _monster.Monster::takeMagicDamage(getMagicAttack());
 }

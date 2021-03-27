@@ -40,6 +40,8 @@ class Hero {
     void setMagicResist(int );
     void setCurrentMagicResist(int );
 
+    void takeDamage(int );
+    
     void postBattleReset();
     void levelUp();
     bool isAlive();

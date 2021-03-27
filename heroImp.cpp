@@ -161,3 +161,7 @@ void Hero::levelUp(){
             return true;
         }
     }
+
+    void Hero::takeDamage(int damage){
+        currentHealth = currentHealth - (damage - .25*armor);
+    }

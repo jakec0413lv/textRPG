@@ -10,6 +10,7 @@
 #include "monster.h"
 #include "Knight.h"
 #include "Mage.h"
+#include "archer.h"
 
 using namespace std;
 
@@ -55,7 +56,7 @@ int main() {
     }
 
     if(classChoice == "a" || classChoice == "A"){
-        //hero1 = new Archer;
+        hero1 = new Archer;
     }
     
     classChoice = "";
@@ -71,7 +72,7 @@ int main() {
     cout << "(W)arrior: Higher Physical Attack, but much lower Armor" << '\n';
     cout << "(M)age: Very High Magic Damage output, lower Health & Armor" << '\n';
     cout << "(C)leric: Lower Magic Attack than Mage, but has ability to heal" << '\n';
-    cout << "(A)rcher: Higher Physical Attack, lower health & armor" << '\n';
+    cout << "(A)rcher: High Skill Damage, average all around stats" << '\n';
 
     cin >> classChoice;
     }
@@ -93,12 +94,15 @@ int main() {
     }
 
     if(classChoice == "a" || classChoice == "A"){
-        //hero2 = new Archer;
+        hero2 = new Archer;
     }
  
     cout << *hero1;
     cout << '\n';
     cout << *hero2;
     
+    delete hero1;
+    delete hero2;
+
     return 0;
 }
