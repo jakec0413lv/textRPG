@@ -21,5 +21,5 @@ void Knight::Guard(){
 };
 
 void Knight::Attack(Monster _monster){
-    _monster.Monster::takeDamage(getPhysicalAttack());
+    _monster.Monster::takeDamage(getCurrentAttack());
 }

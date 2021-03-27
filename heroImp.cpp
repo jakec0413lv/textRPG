@@ -134,7 +134,8 @@ void Hero::levelUp(){
     }
 
     ostream &operator<<(ostream &out, const Hero & _Hero){
-     cout << "Class:" << _Hero.classType << '\n';
+     cout << "Class: " << _Hero.classType << '\n';
+     cout << '\n';
      cout << "Max Health: " << _Hero.maxHealth <<'\n';
      cout << "Current Health: " << _Hero.currentHealth <<'\n';
      cout << "Max Mana: " << _Hero.maxMana <<'\n';

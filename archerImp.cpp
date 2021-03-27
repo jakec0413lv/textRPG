@@ -17,5 +17,5 @@ void Archer::Tripleshot(Monster _monster){
 }
 
 void Archer::Attack(Monster _monster){
-    _monster.Monster::takeDamage(getPhysicalAttack());
+    _monster.Monster::takeDamage(getCurrentAttack());
 }

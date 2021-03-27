@@ -1,5 +1,8 @@
-Game: heroImp.o knightImp.o MageImp.o monsterImp.o archerImp.o clericImp.o main.o 
-	g++ heroImp.o knightImp.o MageImp.o monsterImp.o archerImp.o clericImp.o main.o -Wall -pedantic -o Game
+Game: heroImp.o knightImp.o MageImp.o monsterImp.o archerImp.o clericImp.o warriorImp.o main.o 
+	g++ heroImp.o knightImp.o MageImp.o monsterImp.o archerImp.o clericImp.o warriorImp.o main.o -Wall -pedantic -o Game
+
+warriorImp: warriorImp.cpp
+	g++ -c warriorImp.cpp
 
 clericImp: clericImp.cpp
 	g++ -c clericImp.cpp

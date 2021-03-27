@@ -24,5 +24,5 @@ void Mage::Fireball(Monster _monster){
 }
 
 void Mage::Attack(Monster _monster){
-    _monster.Monster::takeMagicDamage(getMagicAttack());
+    _monster.Monster::takeMagicDamage(getCurrentMagicAttack());
 }

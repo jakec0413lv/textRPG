@@ -33,5 +33,5 @@ void Cleric::Heal(Hero _hero1, Hero _hero2){
 }
 
 void Cleric::Attack(Monster _monster){
-    _monster.Monster::takeMagicDamage(getMagicAttack());
+    _monster.Monster::takeMagicDamage(getCurrentMagicAttack());
 }
