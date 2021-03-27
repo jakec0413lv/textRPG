@@ -24,7 +24,6 @@ class Hero {
     int getCurrentArmor();
     int getMagicResist();
     int getCurrentMagicResist();
-    string getSkill();
     void addSkill(string );
 
     void setMaxHealth(int );

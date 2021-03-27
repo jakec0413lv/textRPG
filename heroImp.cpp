@@ -8,8 +8,8 @@ Hero::Hero(){
      currentHealth = 8;
      maxMana = 8;
      currentMana = 8;
-     physicalAttack = 8;
-     currentAttack = 8;
+     physicalAttack = 12;
+     currentAttack = 12;
      magicAttack = 8;
      currentMagicAttack = 8;
      armor = 8;
@@ -161,5 +161,8 @@ void Hero::levelUp(){
     }
 
     void Hero::takeDamage(int damage){
+        int temp; 
+        temp = currentHealth;
         currentHealth = currentHealth - (damage - .25*armor);
+        cout << "The attack did " << temp - currentHealth << " damage!" << '\n'; 
     }

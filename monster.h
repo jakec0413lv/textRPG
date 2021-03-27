@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 
+#include "hero.h"
+
 using namespace std;
 
 class Monster{
@@ -25,7 +27,8 @@ class Monster{
     int getMagicResist();
     int getCurrentMagicResist();
     void addSkill(string );
-
+    void attack(Hero &);
+    
     void setMaxHealth(int );
     void setCurrentHealth(int );
     void setMaxMana(int );
@@ -42,6 +45,7 @@ class Monster{
     void takeDamage(int );
     void takeMagicDamage(int );
     void postBattleReset();
+
     
     Monster operator++(int );
 

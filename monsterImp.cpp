@@ -4,8 +4,8 @@
 using namespace std;
 
 Monster::Monster(){
-     maxHealth = 30;
-     currentHealth = 30;
+     maxHealth = 20;
+     currentHealth = 20;
      maxMana = 8;
      currentMana = 8;
      physicalAttack = 8;
@@ -155,11 +155,11 @@ Monster::Monster(){
     }
 
     void Monster::takeMagicDamage(int damage){
-        setCurrentHealth(currentHealth - (damage - .35*currentMagicResist));
+        setCurrentHealth(currentHealth - (damage - .25*currentMagicResist));
     }
 
     
-     Monster Monster::operator++(int u){ //post-increment
+    Monster Monster::operator++(int u){ //post-increment
         Monster temp = *this;
 
         maxHealth++;
@@ -177,3 +177,7 @@ Monster::Monster(){
 
         return temp;
   }
+
+void Monster::attack(Hero & _hero){
+    _hero.takeDamage(getCurrentAttack());
+}
