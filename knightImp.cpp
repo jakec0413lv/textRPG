@@ -21,5 +21,5 @@ void Knight::Guard(){
 };
 
 void Knight::Attack(Monster _monster){
-    _monster.Monster::takeDamage(getCurrentAttack());
+    _monster.setCurrentHealth(_monster.getCurrentHealth() - (Hero::getCurrentAttack() - .25*_monster.getCurrentArmor()));
 }

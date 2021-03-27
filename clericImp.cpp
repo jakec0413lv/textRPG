@@ -32,6 +32,6 @@ void Cleric::Heal(Hero _hero1, Hero _hero2){
     setCurrentMana(getCurrentMana() - 5);
 }
 
-void Cleric::Attack(Monster _monster){
-    _monster.Monster::takeMagicDamage(getCurrentMagicAttack());
+void Cleric::Attack(Monster &_monster){
+    _monster.Monster::takeMagicDamage(getCurrentMagicAttack() * .6);
 }

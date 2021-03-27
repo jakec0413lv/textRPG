@@ -9,6 +9,6 @@ class Archer : public Hero
 {
     public:
     Archer();
-    void Tripleshot(Monster );
-    void Attack(Monster );
+    void Tripleshot(Monster & );
+    void Attack(Monster & );
 };

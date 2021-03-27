@@ -22,6 +22,6 @@ void Warrior::Rage(){
     Hero::setCurrentMana(Hero::getCurrentMana() - 4);
 };
 
-void Warrior::Attack(Monster _monster){
+void Warrior::Attack(Monster &_monster){
     _monster.Monster::takeDamage(getCurrentAttack());
 }

@@ -1,3 +1,12 @@
+/* TODO:
+-Don't allow skill casting if not enough mana available
+-Cleric heal function
+-Add a second hero (Why does it go to warrior?)
+-Add monster attack loop
+
+*/
+
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -17,7 +26,8 @@
 using namespace std;
 
 int main() {
-
+    Monster enemy;
+    
     Hero *hero1;
     Hero *hero2;
 
@@ -42,25 +52,32 @@ int main() {
     }
 
     if(classChoice == "k" || classChoice == "K"){
-        hero1 = new Knight;
+        Knight _knight;
+        hero1 = &_knight;
     }
 
     if(classChoice == "w" || classChoice == "W"){
-        hero1 = new Warrior;
+        Warrior _warrior;
+        hero1 = &_warrior;
     }
 
     if(classChoice == "m" || classChoice == "M"){
-        hero1 = new Mage;
+        Mage _mage;
+        hero1 = &_mage;
     }
 
     if(classChoice == "c" || classChoice == "C"){
-        hero1 = new Cleric;
+        Cleric _cleric;
+        hero1 = &_cleric;
     }
 
     if(classChoice == "a" || classChoice == "A"){
-        hero1 = new Archer;
+        Archer _archer;
+        hero1 = &_archer;
     }
     
+    hero1->display();
+    /*
     classChoice = "";
     cout << '\n';
 
@@ -80,31 +97,120 @@ int main() {
     }
 
     if(classChoice == "k" || classChoice == "K"){
-        hero2 = new Knight;
+        Knight _knight;
+        hero2 = &_knight;
     }
 
     if(classChoice == "w" || classChoice == "W"){
-        hero2 = new Warrior;
+        Warrior _warrior;
+        hero2 = &_warrior;
     }
 
     if(classChoice == "m" || classChoice == "M"){
-        hero2 = new Mage;
+        Mage _mage;
+        hero2 = &_mage;
     }
 
     if(classChoice == "c" || classChoice == "C"){
-        hero2 = new Cleric;
+        Cleric _cleric;
+        hero2 = &_cleric;
     }
 
     if(classChoice == "a" || classChoice == "A"){
-        hero2 = new Archer;
+        Archer _archer;
+        hero2 = &_archer;
     }
- 
-    cout << *hero1;
-    cout << '\n';
-    cout << *hero2;
-    
-    delete hero1;
-    delete hero2;
+
+    hero2->display();
+    */
+    char continueGame;
+
+    do{
+
+    while(hero1->isAlive() || hero2->isAlive()){
+        string actionChoice = " ";
+
+        if(hero1->isAlive()){
+
+        cout << enemy << '\n';
+
+        cout << hero1->classType << "'s Turn!" << '\n';
+        cout << '\n';
+
+        cout << "What would you like to do?" << '\n';
+        cout << "(A)ttack!" << '\n';
+        cout << "(S)kill" << '\n';
+        cout << "(P)rint Stats" << '\n';
+            cin >> actionChoice;
+        
+        if(actionChoice == "A" || actionChoice == "a"){
+            if(hero1->classType == "Knight" || hero1->classType == "Warrior" || hero1->classType == "Archer"){
+                enemy.takeDamage(hero1->getCurrentAttack());
+            } else{
+                enemy.takeDamage(hero1->getCurrentMagicAttack()*.75);
+            }
+        }
+
+        if(actionChoice == "S" || actionChoice == "s"){
+            if(hero1->classType == "Knight"){
+                cout << "Armor: " << hero1->getCurrentArmor() << '\n';
+                ((Knight *)hero1)->Guard();
+                cout << "Armor: " << hero1->getCurrentArmor() << '\n';
+            }
+
+            if(hero1->classType == "Warrior"){
+                cout << "Armor: " << hero1->getCurrentArmor() << '\n';
+                cout << "Attack:" << hero1->getCurrentAttack() << '\n';
+                ((Warrior *)hero1)->Rage();
+                cout << "Attack Up! Armor Down!" << '\n';
+                cout << "Armor: " << hero1->getCurrentArmor() << '\n';
+                cout << "Attack:" << hero1->getCurrentAttack() << '\n';
+
+            }
+            if(hero1->classType == "Mage"){
+                ((Mage *)hero1)->Fireball(enemy);
+            }
+            /*if(hero1->classType == "Cleric"){
+                ((Cleric *)hero1)->Heal(*hero1, *hero1);
+            } */
+
+            if(hero1->classType == "Archer"){
+                ((Archer *)hero1)->Tripleshot(enemy);
+            }
+            
+        }
+
+        }//End of Hero1 Turn
+
+        if(!(enemy.isAlive())){
+            cout << "You killed the monster!" << '\n';
+            break;
+        }
+    }
+
+   
+    partyExp += 30;
+
+    if(partyExp >= levelUpExp){
+        cout << "******************************" << '\n';
+        cout << "Level Up!!" << '\n';
+        cout << "******************************" << '\n';
+        partyExp = 0;
+        hero1->levelUp();
+        //hero2->levelUp();
+        hero1->display();
+        cout << '\n';   
+    }
+
+    hero1->postBattleReset();
+    enemy.postBattleReset();
+
+    enemy++;
+
+    cout << "Would you like to continue?" << '\n';
+        cin >> continueGame;
+    }while(continueGame == 'Y' || continueGame == 'y');
+
 
     return 0;
 }

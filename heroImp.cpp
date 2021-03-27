@@ -20,18 +20,18 @@ Hero::Hero(){
     }
 
 void Hero::levelUp(){
-    maxHealth++;
-     currentHealth++;
-     maxMana++;
-     currentMana++;
-     physicalAttack++;
-     currentAttack++;
-     magicAttack++;
-     currentMagicAttack++;
-     armor++;
-     currentArmor++;
-     magicResist++;
-     currentMagicResist++;
+    maxHealth += 2;
+     currentHealth+=2;
+     maxMana+=2;
+     currentMana+=2;
+     physicalAttack+=2;
+     currentAttack+=2;
+     magicAttack+=2;
+     currentMagicAttack+=2;
+     armor+=2;
+     currentArmor+=2;
+     magicResist+=2;
+     currentMagicResist+=2;
 }
 
     void Hero::postBattleReset(){ 
@@ -41,6 +41,7 @@ void Hero::levelUp(){
      currentMagicAttack = magicAttack;
      currentArmor = armor;
      magicResist = currentMagicResist;
+     alive = true;
     }
 
     int Hero::getMaxHealth(){
@@ -133,29 +134,25 @@ void Hero::levelUp(){
         currentMagicResist = x;
     }
 
-    ostream &operator<<(ostream &out, const Hero & _Hero){
-     cout << "Class: " << _Hero.classType << '\n';
+    void Hero::display(){
+     cout << "Class: " << classType << '\n';
      cout << '\n';
-     cout << "Max Health: " << _Hero.maxHealth <<'\n';
-     cout << "Current Health: " << _Hero.currentHealth <<'\n';
-     cout << "Max Mana: " << _Hero.maxMana <<'\n';
-     cout << "Current Mana: " << _Hero.currentMana <<'\n';
-     cout << "Physical Attack: " << _Hero.physicalAttack <<'\n';
-     cout << "Current Physical Attack: " << _Hero.currentAttack <<'\n';
-     cout << "Magic Attack: " << _Hero.magicAttack <<'\n';
-     cout << "Current Magic Attack: " << _Hero.currentMagicAttack <<'\n';
-     cout << "Armor: " << _Hero.armor <<'\n';
-     cout << "Current Armor: " << _Hero.currentArmor <<'\n';
-     cout << "Magic Resist: " << _Hero.magicResist <<'\n';
-     cout << "Current Magic Resist: " << _Hero.currentMagicResist <<'\n';
-        for(int i = 0; i < _Hero.skills.size(); i++){
-            cout << "Skill: " << _Hero.skills[i] << '\n';
-        }
-     return out;
+     cout << "Max Health: " << getMaxHealth() <<'\n';
+     cout << "Current Health: " << getCurrentHealth() <<'\n';
+     cout << "Max Mana: " << getMaxMana() <<'\n';
+     cout << "Current Mana: " << getCurrentMana() <<'\n';
+     cout << "Physical Attack: " << getPhysicalAttack() <<'\n';
+     cout << "Current Physical Attack: " << getCurrentAttack() <<'\n';
+     cout << "Magic Attack: " << getMagicAttack() <<'\n';
+     cout << "Current Magic Attack: " << getCurrentMagicAttack() <<'\n';
+     cout << "Armor: " << getArmor() <<'\n';
+     cout << "Current Armor: " << getCurrentArmor() <<'\n';
+     cout << "Magic Resist: " << getMagicResist() <<'\n';
+     cout << "Current Magic Resist: " << getCurrentMagicResist() <<'\n';
     }
 
     bool Hero::isAlive(){
-        if(currentHealth < 0){
+        if(currentHealth <= 0){
             alive = false;
             return false;
         }else{

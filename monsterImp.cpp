@@ -8,8 +8,8 @@ Monster::Monster(){
      currentHealth = 30;
      maxMana = 8;
      currentMana = 8;
-     physicalAttack = 12;
-     currentAttack = 12;
+     physicalAttack = 8;
+     currentAttack = 8;
      magicAttack = 8;
      currentMagicAttack = 8;
      armor = 12;
@@ -17,6 +17,7 @@ Monster::Monster(){
      magicResist = 8;
      currentMagicResist = 8;
      alive = true;
+     classType = "Monster";
     }
 
     int Monster::getMaxHealth(){
@@ -109,7 +110,19 @@ Monster::Monster(){
         currentMagicResist = x;
     }
 
+    void Monster::postBattleReset(){ 
+     currentHealth = maxHealth;
+     currentMana = maxMana;
+     currentAttack = physicalAttack;
+     currentMagicAttack = magicAttack;
+     currentArmor = armor;
+     magicResist = currentMagicResist;
+     alive = true;
+    }
+
     ostream &operator<<(ostream &out, const Monster & _Monster){
+     cout << "Class: " << _Monster.classType << '\n';
+     cout << '\n';
      cout << "Max Health: " << _Monster.maxHealth <<'\n';
      cout << "Current Health: " << _Monster.currentHealth <<'\n';
      cout << "Max Mana: " << _Monster.maxMana <<'\n';
@@ -129,7 +142,7 @@ Monster::Monster(){
     }
 
     bool Monster::isAlive(){
-        if(currentHealth < 0){
+        if(currentHealth <= 0){
             alive = false;
             return false;
         }else{
@@ -142,5 +155,25 @@ Monster::Monster(){
     }
 
     void Monster::takeMagicDamage(int damage){
-        currentHealth = currentHealth - (damage - .25*currentMagicResist);
+        setCurrentHealth(currentHealth - (damage - .35*currentMagicResist));
     }
+
+    
+     Monster Monster::operator++(int u){ //post-increment
+        Monster temp = *this;
+
+        maxHealth++;
+        currentHealth++;
+        maxMana++;
+        currentMana++;
+        physicalAttack++;
+        currentAttack++;
+        magicAttack++;
+        currentMagicAttack++;
+        armor++;
+        currentArmor++;
+        magicResist++;
+        currentMagicResist++;
+
+        return temp;
+  }

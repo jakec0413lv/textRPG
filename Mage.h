@@ -9,6 +9,6 @@ class Mage : public Hero
 {
     public:
     Mage();
-    void Fireball(Monster );
-    void Attack(Monster );
+    void Fireball(Monster & );
+    void Attack(Monster &);
 };

@@ -10,5 +10,5 @@ class Warrior : public Hero
     public:
     Warrior();
     void Rage();
-    void Attack(Monster );
+    void Attack(Monster & );
 };

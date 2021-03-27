@@ -10,5 +10,5 @@ class Cleric : public Hero
     public:
     Cleric();
     void Heal(Hero, Hero );
-    void Attack(Monster );
+    void Attack(Monster & );
 };

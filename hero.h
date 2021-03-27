@@ -7,7 +7,6 @@ using namespace std;
 
 class Hero {
 
-    friend ostream &operator<<(ostream &, const Hero &); //Done (?)
 
     public:
     string classType;
@@ -25,6 +24,7 @@ class Hero {
     int getCurrentArmor();
     int getMagicResist();
     int getCurrentMagicResist();
+    string getSkill();
     void addSkill(string );
 
     void setMaxHealth(int );
@@ -45,6 +45,8 @@ class Hero {
     void postBattleReset();
     void levelUp();
     bool isAlive();
+
+    void display();
 
     private:
     int maxHealth;

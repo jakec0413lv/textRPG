@@ -41,7 +41,10 @@ class Monster{
 
     void takeDamage(int );
     void takeMagicDamage(int );
+    void postBattleReset();
     
+    Monster operator++(int );
+
     bool isAlive();
 
     private:
@@ -59,4 +62,5 @@ class Monster{
     int currentMagicResist;
     vector<string> skills;
     bool alive;
+    string classType;
 };
