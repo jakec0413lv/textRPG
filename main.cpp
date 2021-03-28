@@ -1,7 +1,6 @@
 /* TODO:
 -Don't allow skill casting if not enough mana available
 -Cleric heal function
--Figure out how to display skills
 
 */
 
@@ -130,6 +129,7 @@ int main() {
         cout << "What would you like to do?" << '\n';
         cout << "(A)ttack!" << '\n';
         cout << "(S)kill" << '\n';
+        cout << '\n';
             cin >> actionChoice;
         
         if(actionChoice == "A" || actionChoice == "a"){
@@ -141,13 +141,13 @@ int main() {
         }
 
         if(actionChoice == "S" || actionChoice == "s"){
-            if(hero1->classType == "Knight"){
+            if(dynamic_cast<Knight*>(hero1)){
                 cout << "Armor: " << hero1->getCurrentArmor() << '\n';
                 ((Knight *)hero1)->Guard();
                 cout << "Armor: " << hero1->getCurrentArmor() << '\n';
             }
 
-            if(hero1->classType == "Warrior"){
+            if(dynamic_cast<Warrior*>(hero1)){
                 cout << "Armor: " << hero1->getCurrentArmor() << '\n';
                 cout << "Attack:" << hero1->getCurrentAttack() << '\n';
                 ((Warrior *)hero1)->Rage();
@@ -156,14 +156,14 @@ int main() {
                 cout << "Attack:" << hero1->getCurrentAttack() << '\n';
 
             }
-            if(hero1->classType == "Mage"){
+            if(dynamic_cast<Mage*>(hero1)){
                 ((Mage *)hero1)->Fireball(enemy);
             }
-            /*if(hero1->classType == "Cleric"){
+            /*if(dynamic_cast<Cleric*>(hero1))
                 ((Cleric *)hero1)->Heal(*hero1, *hero1);
             } */
 
-            if(hero1->classType == "Archer"){
+            if(dynamic_cast<Archer*>(hero1)){
                 ((Archer *)hero1)->Tripleshot(enemy);
             }
             
@@ -195,6 +195,7 @@ int main() {
         cout << "What would you like to do?" << '\n';
         cout << "(A)ttack!" << '\n';
         cout << "(S)kill" << '\n';
+        cout << '\n';
             cin >> actionChoice;
         
         if(actionChoice == "A" || actionChoice == "a"){
@@ -206,13 +207,13 @@ int main() {
         }
 
         if(actionChoice == "S" || actionChoice == "s"){
-            if(hero2->classType == "Knight"){
+            if(dynamic_cast<Knight*>(hero2)){
                 cout << "Armor: " << hero2->getCurrentArmor() << '\n';
                 ((Knight *)hero2)->Guard();
                 cout << "Armor: " << hero2->getCurrentArmor() << '\n';
             }
 
-            if(hero2->classType == "Warrior"){
+            if(dynamic_cast<Warrior*>(hero2)){
                 cout << "Armor: " << hero2->getCurrentArmor() << '\n';
                 cout << "Attack:" << hero2->getCurrentAttack() << '\n';
                 ((Warrior *)hero2)->Rage();
@@ -221,14 +222,14 @@ int main() {
                 cout << "Attack:" << hero2->getCurrentAttack() << '\n';
 
             }
-            if(hero2->classType == "Mage"){
+            if(dynamic_cast<Mage*>(hero2)){
                 ((Mage *)hero2)->Fireball(enemy);
             }
-            /*if(hero2->classType == "Cleric"){
+            /*if(dynamic_cast<Cleric*>(hero2))
                 ((Cleric *)hero2)->Heal(*hero2, *hero2);
             } */
 
-            if(hero2->classType == "Archer"){
+            if(dynamic_cast<Archer*>(hero2)){
                 ((Archer *)hero2)->Tripleshot(enemy);
             }
             

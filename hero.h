@@ -12,6 +12,7 @@ class Hero {
     string classType;
     
     Hero();
+    virtual ~Hero();
     int getMaxHealth();
     int getCurrentHealth();
     int getMaxMana();
@@ -24,6 +25,7 @@ class Hero {
     int getCurrentArmor();
     int getMagicResist();
     int getCurrentMagicResist();
+    string getSkill();
     void addSkill(string );
 
     void setMaxHealth(int );
@@ -45,7 +47,7 @@ class Hero {
     void levelUp();
     bool isAlive();
 
-    void display();
+    virtual void display();
 
     private:
     int maxHealth;
@@ -60,6 +62,6 @@ class Hero {
     int currentArmor;
     int magicResist;
     int currentMagicResist;
-    vector<string> skills;
+    string skill;
     bool alive;
 };

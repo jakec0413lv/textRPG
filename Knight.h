@@ -11,4 +11,6 @@ class Knight : public Hero
     Knight();
     void Guard();
     void Attack(Monster );
+
+    void display();
 };

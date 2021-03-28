@@ -88,7 +88,7 @@ void Hero::levelUp(){
     }
 
     void Hero::addSkill(string s){
-        skills.push_back(s);
+        skill = s;
     }
 
     void Hero::setMaxHealth(int x){
@@ -151,6 +151,10 @@ void Hero::levelUp(){
      cout << "Current Magic Resist: " << getCurrentMagicResist() <<'\n';
     }
 
+    string Hero::getSkill(){
+        return skill;
+    }
+    
     bool Hero::isAlive(){
         if(currentHealth <= 0){
             alive = false;

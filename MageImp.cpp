@@ -24,3 +24,21 @@ void Mage::Fireball(Monster &_monster){
 void Mage::Attack(Monster &_monster){
     _monster.Monster::takeMagicDamage(getCurrentMagicAttack() * .8);
 }
+
+void Mage::display(){
+     cout << "Class: " << classType << '\n';
+     cout << '\n';
+     cout << "Max Health: " << getMaxHealth() <<'\n';
+     cout << "Current Health: " << getCurrentHealth() <<'\n';
+     cout << "Max Mana: " << getMaxMana() <<'\n';
+     cout << "Current Mana: " << getCurrentMana() <<'\n';
+     cout << "Physical Attack: " << getPhysicalAttack() <<'\n';
+     cout << "Current Physical Attack: " << getCurrentAttack() <<'\n';
+     cout << "Magic Attack: " << getMagicAttack() <<'\n';
+     cout << "Current Magic Attack: " << getCurrentMagicAttack() <<'\n';
+     cout << "Armor: " << getArmor() <<'\n';
+     cout << "Current Armor: " << getCurrentArmor() <<'\n';
+     cout << "Magic Resist: " << getMagicResist() <<'\n';
+     cout << "Current Magic Resist: " << getCurrentMagicResist() <<'\n';
+     cout << "Skill: " << getSkill() << '\n';
+}
