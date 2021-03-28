@@ -16,7 +16,7 @@ Cleric::Cleric(){
      Hero::addSkill("Heal: Restore health of you and your ally! (5 MP)");
     }
 
-void Cleric::Heal(Hero &_hero1, Hero &_hero2){
+void Cleric::Heal(Hero _hero1, Hero _hero2){
     _hero1.setCurrentHealth(_hero1.getCurrentHealth() + 4);
 
     if(_hero1.getCurrentHealth() > _hero1.getMaxHealth()){
@@ -34,22 +34,4 @@ void Cleric::Heal(Hero &_hero1, Hero &_hero2){
 
 void Cleric::Attack(Monster &_monster){
     _monster.Monster::takeMagicDamage(getCurrentMagicAttack() * .6);
-}
-
-void Cleric::display(){
-     cout << "Class: " << classType << '\n';
-     cout << '\n';
-     cout << "Max Health: " << getMaxHealth() <<'\n';
-     cout << "Current Health: " << getCurrentHealth() <<'\n';
-     cout << "Max Mana: " << getMaxMana() <<'\n';
-     cout << "Current Mana: " << getCurrentMana() <<'\n';
-     cout << "Physical Attack: " << getPhysicalAttack() <<'\n';
-     cout << "Current Physical Attack: " << getCurrentAttack() <<'\n';
-     cout << "Magic Attack: " << getMagicAttack() <<'\n';
-     cout << "Current Magic Attack: " << getCurrentMagicAttack() <<'\n';
-     cout << "Armor: " << getArmor() <<'\n';
-     cout << "Current Armor: " << getCurrentArmor() <<'\n';
-     cout << "Magic Resist: " << getMagicResist() <<'\n';
-     cout << "Current Magic Resist: " << getCurrentMagicResist() <<'\n';
-     cout << "Skill: " << getSkill() << '\n';
 }

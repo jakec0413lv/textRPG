@@ -11,6 +11,4 @@ class Warrior : public Hero
     Warrior();
     void Rage();
     void Attack(Monster & );
-
-    void display();
 };

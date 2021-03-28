@@ -11,5 +11,4 @@ class Archer : public Hero
     Archer();
     void Tripleshot(Monster & );
     void Attack(Monster & );
-    void display();
 };

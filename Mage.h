@@ -11,5 +11,4 @@ class Mage : public Hero
     Mage();
     void Fireball(Monster & );
     void Attack(Monster &);
-    void display();
 };
